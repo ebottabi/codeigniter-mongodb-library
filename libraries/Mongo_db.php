@@ -661,7 +661,24 @@ class Mongo_db {
 		$count = $this->db->{$collection}->find($this->wheres)->limit((int) $this->limit)->skip((int) $this->offset)->count();
 		$this->_clear();
 		return ($count);
-	}
+    }
+
+
+   /**
+	*	--------------------------------------------------------------------------------
+	*	Execute
+	*	--------------------------------------------------------------------------------
+    *
+    *   @author Sunil Sadasivan | sunilsadasivan.com | sunil@fancite.com
+    *
+	*   Execute mongodb query/javascript (similar to query method in mysql CI driver)
+	*
+	*	@usage : $this->mongo_db->count('foo');
+	*/
+     public function execute( $code, $data = array()) {
+         $ret = $this->db->execute($code); 
+         return $ret; 
+     }
 	
 	/**
 	*	--------------------------------------------------------------------------------
