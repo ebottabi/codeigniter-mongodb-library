@@ -665,17 +665,19 @@ class Mongo_db {
 
 
    /**
-	*	--------------------------------------------------------------------------------
+	*	------------------------------------------------------------
 	*	Execute
-	*	--------------------------------------------------------------------------------
+	*	------------------------------------------------------------
     *
     *   @author Sunil Sadasivan | sunilsadasivan.com | sunil@fancite.com
     *
-	*   Execute mongodb query/javascript (similar to query method in mysql CI driver)
+    *   Execute mongodb query/javascript 
+    *   (similar to query method in mysql CI driver)
 	*
-	*	@usage : $this->mongo_db->count('foo');
+    *	@usage : $this->mongo_db->execute('db.foo.findOne("bar");');
+    *
 	*/
-     public function execute( $code, $data = array()) {
+     public function execute($code) {
          $ret = $this->db->execute($code); 
          return $ret; 
      }
