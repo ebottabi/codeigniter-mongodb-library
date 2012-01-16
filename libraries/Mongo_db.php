@@ -172,7 +172,7 @@ class Mongo_db {
 	*/
 	
 	public function select($includes = array(), $excludes = array())
-	{
+    {
 	 	if ( ! is_array($includes))
 	 	{
 	 		$includes = array();
@@ -189,8 +189,9 @@ class Mongo_db {
 	 		{
 	 			$this->selects[$col] = 1;
 	 		}
-	 	}
-	 	else
+        }
+
+	 	if ( ! empty($excludes))
 	 	{
 	 		foreach ($excludes as $col)
 	 		{
